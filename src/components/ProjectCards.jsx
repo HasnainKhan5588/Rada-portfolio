@@ -1,9 +1,13 @@
 import React from "react";
 
-function ProjectCards({ Image, Header, content, githubLink }) {
+function ProjectCards({ Image, Header, content, githubLink, imageClass }) {
   return (
     <div className="w-full bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300 flex flex-col">
-      <img src={Image} alt={Header} className="w-full h-48 object-cover" />
+      <img
+        src={Image}
+        alt={Header}
+        className={`w-full h-48 object-cover  ${imageClass}`}
+      />
 
       <div className="p-5 ">
         <h2 className="text-xl font-bold mb-3 text-white">{Header}</h2>

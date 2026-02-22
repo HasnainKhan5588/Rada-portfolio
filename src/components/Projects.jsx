@@ -1,6 +1,6 @@
 import React from "react";
 import githubfinderImage from "../assets/github-finder.png";
-import analogImage from "../assets/analog-clock.jpeg";
+import task_manager from "../assets/task_manager.png";
 import ProjectCards from "./ProjectCards";
 import reactPass from "../assets/react-pass-gen.jpeg";
 
@@ -23,16 +23,18 @@ function Projects() {
         />
 
         <ProjectCards
-          Image={analogImage}
-          Header="Analog Clock"
-          content="A stylish analog clock built using HTML, CSS, and JavaScript."
+          Image={task_manager}
+          imageClass={"object-top"}
+          Header="Task Manager"
+          content="A clean and responsive UI task manager built with React and tailwind, featuring core functionalities"
           githubLink="https://github.com/HasnainKhan5588/Anolog-Clock"
         />
 
         <ProjectCards
           Image={githubfinderImage}
+          imageClass={"w-full"}
           Header="GitHub Profile Finder"
-          content="A simple GitHub profile finder app using GitHub API calls, showing repos and details."
+          content="A  GitHub profile finder app using GitHub API calls, showing repos and details."
           githubLink="https://github.com/HasnainKhan5588/GitHUb-profile-finder-in-react"
         />
       </div>
