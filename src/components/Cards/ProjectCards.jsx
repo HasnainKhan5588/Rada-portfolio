@@ -1,8 +1,8 @@
 import React from "react";
-
+import "../../App.css";
 function ProjectCards({ Image, Header, content, githubLink, imageClass }) {
   return (
-    <div className="w-full bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300 flex flex-col">
+    <div className="w-full box bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300 flex flex-col">
       <img
         src={Image}
         alt={Header}

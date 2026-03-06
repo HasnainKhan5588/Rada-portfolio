@@ -14,6 +14,9 @@ This is my personal portfolio website built using React and Tailwind CSS. I Like
 - Responsive
 - Modern UI
 - Clean Folder Structure
+- smooth scroll
+- friendly
+
 
 ## How to Run Project
 

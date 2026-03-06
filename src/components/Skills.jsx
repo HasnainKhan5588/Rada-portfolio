@@ -1,7 +1,21 @@
-import React from "react";
-import SkillCards from "./SkillCards";
-
+import React, { useEffect } from "react";
+import SkillCards from "./Cards/SkillCards";
+import "../App.css";
 function Skills() {
+  useEffect(() => {
+    const boxes = document.querySelectorAll(".box");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+    boxes.forEach((box) => observer.observe(box));
+  }, []);
   return (
     <section
       id="skills"
@@ -15,6 +29,7 @@ function Skills() {
 
       <div className="flex w-full flex-wrap justify-center md:justify-between  px-2 md:px-10">
         <SkillCards
+          className="box"
           Heading={"HTML & CSS"}
           Content={
             "I have cleared all concepts and have a strong command to create beautiful designs."

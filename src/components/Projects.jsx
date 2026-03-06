@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import githubfinderImage from "../assets/github-finder.png";
 import task_manager from "../assets/task_manager.png";
-import ProjectCards from "./ProjectCards";
+import ProjectCards from "./Cards/ProjectCards";
 import reactPass from "../assets/react-pass-gen.jpeg";
 
 function Projects() {
+  useEffect(() => {
+    const boxes = document.querySelectorAll(".box");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+    boxes.forEach((box) => observer.observe(box));
+  }, []);
   return (
     <section
       id="projects"
