@@ -1,55 +1,68 @@
-import React, { useEffect } from "react";
-import SkillCards from "./Cards/SkillCards";
-import "../App.css";
-function Skills() {
+import { useState, useEffect } from "react";
+
+export default function Skill() {
   useEffect(() => {
     const boxes = document.querySelectorAll(".box");
-    const observer = new IntersectionObserver(
+    let observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("show");
+            entry.target.classList.add(".show");
           }
         });
       },
       { threshold: 0.2 },
     );
-    boxes.forEach((box) => observer.observe(box));
+    boxes.forEach((box) => {
+      observer.observe(box);
+    });
   }, []);
-  return (
-    <section
-      id="skills"
-      className="flex flex-col justify-center items-center mb-2 md:mb-25 px-2 md:px-10 "
-    >
-      <div>
-        <h1 className="font-bold text-3xl md:text-5xl mb-5 md:mb-20  text-gray-800">
-          MY SKILLS
-        </h1>
-      </div>
+  const skills = [
+    { name: "HTML", percent: 90 },
+    { name: "CSS", percent: 85 },
+    { name: "JavaScript", percent: 75 },
+    { name: "React", percent: 70 },
+    { name: "Tailwind", percent: 80 },
+    { name: "Git", percent: 65 },
+  ];
 
-      <div className="flex w-full flex-wrap justify-center md:justify-between  px-2 md:px-10">
-        <SkillCards
-          className="box"
-          Heading={"HTML & CSS"}
-          Content={
-            "I have cleared all concepts and have a strong command to create beautiful designs."
-          }
-        />
-        <SkillCards
-          Heading="JavaScript"
-          Content="In JavaScript, I solve complex problems and use it in React. It is very interesting."
-        />
-        <SkillCards
-          Heading="Tailwind & Bootstrap"
-          Content="I create beautiful and well-matched UI designs."
-        />
-        <SkillCards
-          Heading="React"
-          Content="In React, I combine my JavaScript knowledge with other technologies to build functional and beautiful designs."
-        />
+  const [progress, setProgress] = useState(skills.map(() => 0));
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setProgress(skills.map((skill) => skill.percent));
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <section id="skills" className="bg-white md:py-20">
+      <h2 className="font-bold text-3xl text-center md:text-5xl mb-10 text-gray-800">
+        My Skills
+      </h2>
+
+      <div className="flex flex-wrap justify-center gap-2  sm:gap-9 md:gap-10">
+        {skills.map((skill, index) => (
+          <div
+            key={index}
+            className="flex box flex-col items-center bg-gray-900 p-6 rounded-xl shadow-lg hover:scale-105 transition"
+          >
+            <div
+              className="w-28 h-28 rounded-full flex items-center justify-center text-white font-bold text-lg transition-all duration-1000"
+              style={{
+                background: `conic-gradient(white ${progress[index]}%, #1f2937 ${progress[index]}%)`,
+              }}
+            >
+              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center">
+                {progress[index]}%
+              </div>
+            </div>
+
+            <p className="text-white mt-4">{skill.name}</p>
+          </div>
+        ))}
       </div>
     </section>
   );
 }
-
-export default Skills;
