@@ -31,7 +31,7 @@ export default function Skill() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setProgress(skills.map((skill) => skill.percent));
-    }, 300);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
