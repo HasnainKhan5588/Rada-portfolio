@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import githubfinderImage from "../assets/github-finder.png";
+import virtualr from "../assets/virtualr.png";
 import task_manager from "../assets/task_manager.png";
 import ProjectCards from "./Cards/ProjectCards";
-import reactPass from "../assets/react-pass-gen.jpeg";
+import githubfinderImage from "../assets/github-finder.png";
 
 function Projects() {
   useEffect(() => {
@@ -30,10 +30,11 @@ function Projects() {
 
       <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl">
         <ProjectCards
-          Image={reactPass}
-          Header="React Password Generator"
-          content="A secure password generator built with React.js with copy and strength checker features."
-          githubLink="https://github.com/HasnainKhan5588/React-Password-Generator"
+          Image={virtualr}
+          Header="Landing Page VirtualR"
+          content="
+A clean and responsive landing page built with React and Vite using modern frontend practices."
+          githubLink="https://github.com/HasnainKhan5588/VirtualR.git"
         />
 
         <ProjectCards
