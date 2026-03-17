@@ -1,16 +1,6 @@
 import React from "react";
 import { Link } from "react-scroll";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaTwitter,
-  FaFacebook,
-  FaHome,
-  FaUser,
-  FaTools,
-  FaProjectDiagram,
-  FaEnvelope,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter, FaFacebook } from "react-icons/fa";
 
 function Footer() {
  

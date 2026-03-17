@@ -1,65 +1,86 @@
 import { useState, useEffect } from "react";
 
 export default function Skill() {
-  useEffect(() => {
-    const boxes = document.querySelectorAll(".box");
-    let observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(".show");
-          }
-        });
-      },
-      { threshold: 0.2 },
-    );
-    boxes.forEach((box) => {
-      observer.observe(box);
-    });
-  }, []);
-  const skills = [
-    { name: "HTML", percent: 90 },
-    { name: "CSS", percent: 85 },
-    { name: "JavaScript", percent: 75 },
-    { name: "React", percent: 70 },
-    { name: "Tailwind", percent: 80 },
-    { name: "Git", percent: 65 },
+  const skillGroups = [
+    {
+      title: "Frontend",
+      skills: [
+        { name: "React", percent: 70 },
+        { name: "JavaScript", percent: 75 },
+        { name: "HTML5", percent: 90 },
+        { name: "Tailwind CSS", percent: 80 },
+        { name: "Bootstrap", percent: 75 },
+      ],
+    },
+    {
+      title: "Tools & Libraries",
+      skills: [
+        { name: "Framer Motion", percent: 65 },
+        { name: "Git & GitHub", percent: 70 },
+        { name: "Figma to Code", percent: 75 },
+      ],
+    },
+    {
+      title: "Other Skills",
+      skills: [
+        { name: "Responsive Design", percent: 90 },
+        { name: "Performance Optimization", percent: 70 },
+        { name: "AI Tools", percent: 80 },
+        { name: "SEO", percent: 65 },
+      ],
+    },
   ];
 
-  const [progress, setProgress] = useState(skills.map(() => 0));
+  const [progress, setProgress] = useState(
+    skillGroups.map((group) => group.skills.map(() => 0)),
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setProgress(skills.map((skill) => skill.percent));
-    }, 1000);
+      setProgress(
+        skillGroups.map((group) => group.skills.map((skill) => skill.percent)),
+      );
+    }, 800);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <section id="skills" className="bg-white md:py-20">
+    <section id="skills" className="bg-white md:py-20 px-4">
       <h2 className="font-bold text-3xl text-center md:text-5xl mb-10 text-gray-800">
         My Skills
       </h2>
 
-      <div className="flex flex-wrap justify-center gap-2  sm:gap-9 md:gap-10">
-        {skills.map((skill, index) => (
+      <div className="grid md:grid-cols-3 gap-6">
+        {skillGroups.map((group, gIndex) => (
           <div
-            key={index}
-            className="flex box flex-col items-center bg-gray-900 p-6 rounded-xl shadow-lg hover:scale-105 transition"
+            key={gIndex}
+            className="bg-gray-900 p-6 rounded-xl shadow-lg 
+transition-all duration-300 
+hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02]
+hover:ring-2 hover:ring-white/20"
           >
-            <div
-              className="w-28 h-28 rounded-full flex items-center justify-center text-white font-bold text-lg transition-all duration-1000"
-              style={{
-                background: `conic-gradient(white ${progress[index]}%, #1f2937 ${progress[index]}%)`,
-              }}
-            >
-              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center">
-                {progress[index]}%
-              </div>
-            </div>
+            <h3 className="text-white text-lg md:text-2xl font-semibold mb-6 text-center">
+              {group.title}
+            </h3>
 
-            <p className="text-white mt-4">{skill.name}</p>
+            {group.skills.map((skill, sIndex) => (
+              <div key={sIndex} className="mb-4">
+                <div className="flex justify-between text-white text-sm mb-1">
+                  <span>{skill.name}</span>
+                  <span>{progress[gIndex][sIndex]}%</span>
+                </div>
+
+                <div className="w-full bg-gray-700 h-2 rounded">
+                  <div
+                    className="bg-white h-2 rounded transition-all duration-1000"
+                    style={{
+                      width: `${progress[gIndex][sIndex]}%`,
+                    }}
+                  ></div>
+                </div>
+              </div>
+            ))}
           </div>
         ))}
       </div>

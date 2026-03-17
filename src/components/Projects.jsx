@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import virtualr from "../assets/virtualr.png";
 import task_manager from "../assets/task_manager.png";
 import ProjectCards from "./Cards/ProjectCards";
-import githubfinderImage from "../assets/github-finder.png";
+import Courses from "../assets/courses.png";
 
 function Projects() {
   useEffect(() => {
@@ -34,23 +34,21 @@ function Projects() {
           Header="Landing Page VirtualR"
           content="
 A clean and responsive landing page built with React and Vite using modern frontend practices."
-          githubLink="https://github.com/HasnainKhan5588/VirtualR.git"
+          githubLink="https://virtual-r-phi-teal.vercel.app/"
         />
-
+        <ProjectCards
+          Image={Courses}
+          imageClass={"w-full p-2"}
+          Header="Courses Landing page"
+          content="A modren and responsive courses landing page buit using react and tailwind css"
+          githubLink="https://react-courses-landing-page.vercel.app/"
+        />
         <ProjectCards
           Image={task_manager}
           imageClass={"object-top"}
           Header="Task Manager"
           content="A clean and responsive UI task manager built with React and tailwind, featuring core functionalities"
-          githubLink="https://github.com/HasnainKhan5588/Anolog-Clock"
-        />
-
-        <ProjectCards
-          Image={githubfinderImage}
-          imageClass={"w-full"}
-          Header="GitHub Profile Finder"
-          content="A  GitHub profile finder app using GitHub API calls, showing repos and details."
-          githubLink="https://github.com/HasnainKhan5588/GitHUb-profile-finder-in-react"
+          githubLink="https://react-task-manager-eta.vercel.app/task"
         />
       </div>
 
@@ -58,7 +56,7 @@ A clean and responsive landing page built with React and Vite using modern front
         href="https://github.com/HasnainKhan5588"
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-10 inline-block bg-gray-800 hover:bg-gray-600 transition-all duration-300 text-white rounded-lg px-6 py-3 font-bold"
+        className="Btn mt-10"
       >
         View All GitHub Repositories
       </a>

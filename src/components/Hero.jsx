@@ -13,25 +13,28 @@ function Hero() {
   return (
     <section
       id="home"
-      className="flex flex-col-reverse md:flex-row items-center justify-between gap-10 px-10 py-20"
+      className="flex flex-col-reverse md:flex-row items-center min-h-screen justify-between gap-10 px-10 py-20 md:py-0"
     >
-      <div className="text-center flex items-center md:items-start flex-col md:text-left">
-        <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4">
+      <div className="text-center flex items-center md:items-start flex-col gap-4 md:gap-10 md:text-left">
+        <h1 className="text-xl sm:text-3xl md:text-5xl font-bold ">
           Hi, I am Hasnain Rada 👋
         </h1>
-        <h2 className=" sm:text-2xl md:text-3xl font-semibold mb-4">
-          I am a <span className="text-blue-600">{text}</span>
-          <Cursor cursorStyle="|" />
-        </h2>
-        <p className="text-lg text-gray-700">
-          I am a passionate frontend developer focused on building creative web
-          experiences.
-        </p>
+        <div>
+          <h2 className="text-lgx sm:text-2xl md:text-3xl font-semibold md:mb-4">
+            I am a <span className="text-blue-600">{text}</span>
+            <Cursor cursorStyle="|" />
+          </h2>
+          <p className="text-sm sm:text-lg text-gray-700">
+            I am a passionate frontend developer focused on building creative
+            web experiences.
+          </p>
+        </div>
+
         <a
           href="https://github.com/HasnainKhan5588?tab=repositories"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-gray-800 text-white px-5 py-3 mt-4 block w-full md:w-fit font-semibold cursor-pointer rounded-md text-center hover:bg-gray-600 transition duration-300"
+          className="Btn w-full md:w-fit hover:shadow-lg  md:font-semibold"
         >
           View My GitHub
         </a>

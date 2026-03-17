@@ -20,7 +20,7 @@ function ProjectCards({ Image, Header, content, githubLink, imageClass }) {
         rel="noopener noreferrer"
         className="bg-white text-center rounded-lg p-2 m-4 font-semibold duration-300 transition-all hover:text-blue-500"
       >
-        View on GitHub
+        View Live Demo
       </a>
     </div>
   );
