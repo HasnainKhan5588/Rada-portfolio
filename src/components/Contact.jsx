@@ -2,7 +2,7 @@ import React from "react";
 
 function Contact() {
   const handleGmailClick = () => {
-    window.location.href = `mailto:rada629015@gmail.com?subject=Contact%20from%20Portfolio&body=Hi%20Hasnain,%20I%20would%20like%20to%20contact%20you.`;
+    window.location.href = `mailto:radakhan.developer@gmail.com?subject=Contact%20from%20Portfolio&body=Hi%20Hasnain,%20I%20would%20like%20to%20contact%20you.`;
   };
 
   return (
@@ -37,7 +37,7 @@ function Contact() {
           </h2>
           <p className="text-gray-300 cursor-pointer hover:text-blue-500 flex items-center transition-all">
             <span className="hidden sm:flex">📧</span>
-            rada629015@gmail.com
+            radakhan.developer@gmail.com
           </p>
           <p className="text-gray-300">📞 +92 3379867539</p>
           <p className="text-gray-300">📍 Mardan, Pakistan</p>

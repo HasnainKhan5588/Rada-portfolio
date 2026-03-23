@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-scroll";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { motion, stagger } from "framer-motion";
+import { AnimatePresence, motion, stagger } from "framer-motion";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -90,40 +90,42 @@ function Navbar() {
         </div>
       </div>
 
-      {isOpen && (
-        <motion.ul
-          variants={menuVariants}
-          initial="closed"
-          animate="open"
-          className="md:hidden flex items-center  flex-col bg-gray-700 text-center py-4 gap-4"
-        >
-          {sections.map((section) => (
-            <motion.li key={section.id} variants={itemVariants}>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.ul
+            variants={menuVariants}
+            initial="closed"
+            animate="open"
+            className="md:hidden flex items-center  flex-col bg-gray-700 text-center py-4 gap-4"
+          >
+            {sections.map((section) => (
+              <motion.li key={section.id} variants={itemVariants}>
+                <Link
+                  to={section.id}
+                  smooth={true}
+                  duration={500}
+                  className="flex items-center justify-center gap-2 cursor-pointer hover:text-blue-400 capitalize text-lg"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {section.icon} {section.label}
+                </Link>
+              </motion.li>
+            ))}
+            <motion.li variants={itemVariants}>
               <Link
-                to={section.id}
+                onClick={() => setIsOpen(false)}
+                to="contact"
+                key="contact"
+                className="px-5 hover:bg-gray-400 transition-all py-2 rounded-md  cursor-pointer  bg-white text-black font-semibold w-fit"
                 smooth={true}
                 duration={500}
-                className="flex items-center justify-center gap-2 cursor-pointer hover:text-blue-400 capitalize text-lg"
-                onClick={() => setIsOpen(false)}
               >
-                {section.icon} {section.label}
+                Hire Me
               </Link>
             </motion.li>
-          ))}
-          <motion.li variants={itemVariants}>
-            <Link
-              onClick={() => setIsOpen(false)}
-              to="contact"
-              key="contact"
-              className="px-5 hover:bg-gray-400 transition-all py-2 rounded-md  cursor-pointer  bg-white text-black font-semibold w-fit"
-              smooth={true}
-              duration={500}
-            >
-              Hire Me
-            </Link>
-          </motion.li>
-        </motion.ul>
-      )}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
